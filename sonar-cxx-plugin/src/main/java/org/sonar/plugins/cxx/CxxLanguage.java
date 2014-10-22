@@ -30,7 +30,7 @@ import org.sonar.api.scan.filesystem.FileQuery;
 public class CxxLanguage extends AbstractLanguage {
   public static final String DEFAULT_SOURCE_SUFFIXES = ".cxx,.cpp,.cc,.c";
   public static final String DEFAULT_HEADER_SUFFIXES = ".hxx,.hpp,.hh,.h";
-  public static final String KEY = "c++";
+  public static final String KEY = "cpp";
 
   private String[] sourceSuffixes;
   private String[] headerSuffixes;
@@ -43,14 +43,14 @@ public class CxxLanguage extends AbstractLanguage {
    * {@inheritDoc}
    */
   public CxxLanguage(Settings config) {
-    super(KEY, "c++");
+    super(KEY, "cpp");
     sourceSuffixes = createStringArray(config.getStringArray(CxxPlugin.SOURCE_FILE_SUFFIXES_KEY), DEFAULT_SOURCE_SUFFIXES);
     headerSuffixes = createStringArray(config.getStringArray(CxxPlugin.HEADER_FILE_SUFFIXES_KEY), DEFAULT_HEADER_SUFFIXES);
     fileSuffixes = mergeArrays(sourceSuffixes, headerSuffixes);
   }
 
   public CxxLanguage() {
-    super(KEY, "c++");
+    super(KEY, "cpp");
     sourceSuffixes = createStringArray(null, DEFAULT_SOURCE_SUFFIXES);
     headerSuffixes = createStringArray(null, DEFAULT_HEADER_SUFFIXES);
     fileSuffixes = mergeArrays(sourceSuffixes, headerSuffixes);
